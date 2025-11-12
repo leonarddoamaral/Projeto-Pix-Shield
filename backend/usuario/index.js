@@ -9,8 +9,8 @@ const mysql = require('mysql2');
 const db=mysql.createConnection({
     host:'localhost', //127.0.0.1
     user:'root', //usuario do mysql
-    password:'', //sua senha do mysql
-    database:'sistema' //nome do banco de dados
+    password:'anima123', //sua senha_usuario do mysql
+    database:'testePix' //nome_usuario do banco de dados
 }
  
 );
@@ -40,12 +40,12 @@ app.get('/',(req, res)=>{
 //Inserir os Dados (post)
  
 app.post('/usuarios',(req, res)=>{
-    var {nome, email, telefone, senha, data}=req.body;
-    if(!nome || !email || !telefone || !senha || !data){
+    var {nome_usuario, email_usuario, telefone_usuario, senha_usuario}=req.body;
+    if(!nome_usuario || !email_usuario || !telefone_usuario || !senha_usuario){
         return res.status(400).json({erro:'Todas as informações são obrigatórias'});
     }
-    var sql='INSERT INTO usuarios(nome, email, telefone, senha, data)VALUES(?,?,?,?,?)';
-    db.query(sql,[nome, email, telefone, senha, data],(err, result)=>{
+    var sql='INSERT INTO usuarios(nome_usuario, email_usuario, telefone_usuario, senha_usuario)VALUES(?,?,?,?)';
+    db.query(sql,[nome_usuario, email_usuario, telefone_usuario, senha_usuario],(err, result)=>{
         if(err){
             console.error('Erro ao Inserir:',err);
             return res.status(500).json({erro:'Erro ao inserir no banco de dados'});
@@ -60,7 +60,7 @@ app.post('/usuarios',(req, res)=>{
 //Listar todos os usuarios(Get)
  
 app.get('/usuarios',(req, res)=>{
-    db.query('SELECT id, nome, email, telefone, data FROM usuarios',(err, results)=>{
+    db.query('SELECT id_usuarios, nome_usuario, email_usuario, telefone_usuario FROM usuarios',(err, results)=>{
         if(err){
             return res.status(500).json({erro:'Erro ao buscar usuarios'});
         }
@@ -71,7 +71,7 @@ app.get('/usuarios',(req, res)=>{
  
 app.get('/usuarios/:id',(req, res)=>{
     var {id}=req.params;
-    db.query('SELECT *FROM usuarios WHERE id=?',[id],(err, results1)=>
+    db.query('SELECT *FROM usuarios WHERE id_usuarios=?',[id],(err, results1)=>
     {
         if(err){
             return res.status(500).json({erro:'Erro ao Buscar usuário'});
@@ -86,12 +86,12 @@ app.get('/usuarios/:id',(req, res)=>{
  
 app.put('/usuarios/:id',(req, res)=>{
     var {id}=req.params;
-    var {nome, email, telefone, senha, data}=req.body;
-    if(!nome || !email || !telefone || !senha || !data){
+    var {nome_usuario, email_usuario, telefone_usuario, senha_usuario}=req.body;
+    if(!nome_usuario || !email_usuario || !telefone_usuario || !senha_usuario){
         return res.status(400).json({erro:'Todas as informações são obrigatórias'});
     }
-    var sql='UPDATE usuarios SET nome=?, email=?, telefone=?, senha=?, data=? WHERE id=?';
-    db.query(sql,[nome, email, telefone, senha, data, id],(err, result)=>{
+    var sql='UPDATE usuarios SET nome_usuario=?, email_usuario=?, telefone_usuario=?, senha_usuario=? WHERE id=?';
+    db.query(sql,[nome_usuario, email_usuario, telefone_usuario, senha_usuario, id],(err, result)=>{
         if(err){
             console.error('Erro ao atualizar:',err);
             return res.status(500).json({erro:'Erro ao atualizar no banco de dados'});
@@ -102,7 +102,7 @@ app.put('/usuarios/:id',(req, res)=>{
  
 app.delete('/usuarios/:id',(req, res)=>{
     var {id}=req.params;
-    var sql='DELETE FROM usuarios WHERE id=?';
+    var sql='DELETE FROM usuarios WHERE id_usuario=?';
     db.query(sql,[id],(err, result)=>{
         if(err){
             console.error('Erro ao deletar:',err);
