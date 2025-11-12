@@ -1,0 +1,17 @@
+create database testePix; 
+create database testePixChave;
+use testePix;
+create table usuarios (
+id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+nome_usuario VARCHAR(100) NOT NULL,
+email_usuario VARCHAR(100)NOT NULL,
+telefone_usuario VARCHAR(100)NOT NULL,
+senha_usuario VARCHAR(64)NOT NULL
+);
+
+use testePixChave;
+create table chavePix(
+	id_chave INT AUTO_INCREMENT PRIMARY KEY,
+    valor_chave VARCHAR(100) NOT NULL,
+    numeroDenuncias_chave INT(100) NOT NULL
+);
