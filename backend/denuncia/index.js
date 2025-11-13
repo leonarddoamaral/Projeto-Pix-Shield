@@ -6,8 +6,8 @@ const mysql = require('mysql2');
 const db=mysql.createConnection({
     host:'localhost', //
     user:'root', //usuario do mysql
-    password:'', //sua senha do mysql
-    database:'sistema' //nome do banco de dados
+    password:'anima123', //sua senha do mysql
+    database:'ps_denuncias' //nome do banco de dados
 }
 );
 
@@ -34,12 +34,12 @@ app.get('/',(req, res)=>{
 
 //Inserir os Dados (post)
 app.post('/denuncias',(req, res)=>{
-    var {id, conteudo, descricao, data, idUsuario, idChave}=req.body;
-    if(!id || !conteudo || !descricao || !data || !idUsuario || !idChave){
+    var {conteudo_denuncia, descricao_denuncia, situacao_denuncia, id_usuario_fk, id_chave_fk}=req.body;
+    if(!conteudo_denuncia || !descricao_denuncia || !situacao_denuncia || !id_usuario_fk|| !id_chave_fk){
         return res.status(400).json({erro:'Todas as informações são obrigatórias'});
     }
-    var sql='INSERT INTO denuncias(id, conteudo, descricao, data, idUsuario, idChave)VALUES(?,?,?,?,?,?)';
-    db.query(sql,[id, conteudo, descricao, data, idUsuario, idChave],(err, result)=>{
+    var sql='INSERT INTO denuncias(conteudo_denuncia, descricao_denuncia, situacao_denuncia, id_usuario_fk, id_chave_fk)VALUES(?,?,?,?,?)';
+    db.query(sql,[conteudo_denuncia, descricao_denuncia, situacao_denuncia, id_usuario_fk, id_chave_fk],(err, result)=>{
         if(err){
             console.error('Erro ao Inserir:',err);
             return res.status(500).json({erro:'Erro ao inserir no banco de dados'});
@@ -64,3 +64,49 @@ app.get('/denuncias',(req, res)=>{
     });
 });
 
+app.put('/denuncias/:id_denuncia',(req, res)=>{
+    var {id_denuncia}=req.params;
+    var {conteudo_denuncia, descricao_denuncia, situacao_denuncia, id_chave_fk}=req.body;
+    if( !conteudo_denuncia || !descricao_denuncia || !situacao_denuncia || !id_chave_fk ){
+        return res.status(400).json({erro:'Todas as informações são obrigatórias'});
+    }
+    var sql='UPDATE denuncias SET conteudo_denuncia=?, descricao_denuncia=?, situacao_denuncia=?, id_chave_fk=? WHERE id_denuncia=?';
+    db.query(sql,[conteudo_denuncia, descricao_denuncia, situacao_denuncia, id_chave_fk, id_denuncia],(err, result)=>{
+        if(err){
+            console.error('Erro ao atualizar:',err);
+            return res.status(500).json({erro:'Erro ao atualizar no banco de dados'});
+        }
+        res.json({mensagem:'Denuncia atualizada com sucesso'});
+    });
+});
+
+app.get('/denuncias/:id_denuncia',(req, res)=>{
+    var {id_denuncia}=req.params;
+    db.query('SELECT * FROM denuncias WHERE id_denuncia=?',[id_denuncia],(err, results1)=>
+    {
+        if(err){
+            return res.status(500).json({erro:'Erro ao Buscar denuncia'});
+        }
+        if(results1.length===0){
+            return res.status(404).json({mensagem:'Denuncia não encontrada'});
+        }
+        res.json(results1[0]);
+    }
+);
+});
+
+app.delete('/denuncias/:id_denuncia',(req, res)=>{
+    var {id_denuncia}=req.params;
+    var sql='DELETE FROM denuncias WHERE id_denuncia=?';
+    db.query(sql,[id_denuncia],(err, result)=>{
+        if(err){
+            console.error('Erro ao deletar:',err);
+            return res.status(500).json({erro:'Erro ao deletar no banco de dados'});
+        }
+        res.json({mensagem:'Denuncia deletada com sucesso'});
+    }
+);});
+ 
+app.listen(5000,()=>{
+    console.log('Servidor rodando em http://localhost:5000');
+})

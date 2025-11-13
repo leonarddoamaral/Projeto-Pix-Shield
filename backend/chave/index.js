@@ -10,7 +10,7 @@ const db=mysql.createConnection({
     host:'localhost', //127.0.0.1
     user:'root', //usuario do mysql
     password:'anima123', //sua senha_usuario do mysql
-    database:'testepixChave' //nome_usuario do banco de dados
+    database:'ps_chaves' //nome_usuario do banco de dados
 }
  
 );
@@ -69,9 +69,9 @@ app.get('/chave',(req, res)=>{
 });
 // Listar usuário pelo ID
  
-app.get('/chave/:id',(req, res)=>{
+app.get('/chave/:id_chave',(req, res)=>{
     var {id_chave}=req.params;
-    db.query('SELECT *FROM chavepix WHERE id_chave=?',[id_chave],(err, results1)=>
+    db.query('SELECT * FROM chavepix WHERE id_chave=?',[id_chave],(err, results1)=>
     {
         if(err){
             return res.status(500).json({erro:'Erro ao Buscar chave'});
@@ -84,13 +84,13 @@ app.get('/chave/:id',(req, res)=>{
 );
 });
  
-app.put('/chave/:id',(req, res)=>{
+app.put('/chave/:id_chave',(req, res)=>{
     var {id_chave}=req.params;
     var {valor_chave, numeroDenuncias_chave}=req.body;
     if(!valor_chave || !numeroDenuncias_chave){
         return res.status(400).json({erro:'Todas as informações são obrigatórias'});
     }
-    var sql='UPDATE chavepix SET valor_chave=?, numeroDenuncias_chave=?';
+    var sql='UPDATE chavepix SET valor_chave=?, numeroDenuncias_chave=? WHERE id_chave=?';
     db.query(sql,[valor_chave, numeroDenuncias_chave, id_chave],(err, result)=>{
         if(err){
             console.error('Erro ao atualizar:',err);
@@ -100,7 +100,7 @@ app.put('/chave/:id',(req, res)=>{
     });
 });
  
-app.delete('/chave/:id',(req, res)=>{
+app.delete('/chave/:id_chave',(req, res)=>{
     var {id_chave}=req.params;
     var sql='DELETE FROM chavepix WHERE id_chave=?';
     db.query(sql,[id_chave],(err, result)=>{

@@ -35,7 +35,7 @@
 | Data | Tarefa |
 | :--- | :--- |
 | **🗓️ 29/10** | Requisitos (RF e RNF), Diagrama de Classes e Diagrama do Banco de Dados. ✔|
-| **🗓️ 05/11** | Criação do banco de dados e início do back-end. |
+| **🗓️ 05/11** | Criação do banco de dados e início do back-end. ✔|
 | **🗓️ 12/11** | 80% do back-end finalizado. |
 | **🗓️ 19/11** | Projeto finalizado com integração com front-end. |
 
