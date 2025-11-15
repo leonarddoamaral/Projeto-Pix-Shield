@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser=require('body-parser');
 const mysql = require('mysql2');
 const axios = require('axios');
+const util = require('util');
 
 //criar a conexão com o banco de dados
 const db=mysql.createConnection({
@@ -16,7 +17,7 @@ const servicoUsuarioURL = 'http://localhost:3000';
 const servicoChaveURL = 'http://localhost:4000';
 let nomeUsuario = '';
 let valorChave = '';
-
+const dbQuery = util.promisify(db.query).bind(db);
 //Conectar com o banco de dados
 
 db.connect((err)=>{
@@ -60,6 +61,9 @@ app.post('/denuncias', async(req, res)=>{
             console.error('Erro ao Inserir:',err);
             return res.status(500).json({erro:'Erro ao inserir no banco de dados'});
         }
+        axios.put(`${servicoChaveURL}/chave/contadorsoma/${id_chave_fk}`).catch((error) => {
+            console.error('Erro ao notificar o serviço de chave:', error);
+        });
         res.status(201).json({
            mensagem:'Denuncia Inserida com sucesso',id: result.insertId
         });
@@ -111,17 +115,29 @@ app.get('/denuncias/:id_denuncia',(req, res)=>{
 );
 });
 
-app.delete('/denuncias/:id_denuncia',(req, res)=>{
+app.delete('/denuncias/:id_denuncia', async (req, res)=>{
     var {id_denuncia}=req.params;
-    var sql='DELETE FROM denuncias WHERE id_denuncia=?';
-    db.query(sql,[id_denuncia],(err, result)=>{
-        if(err){
-            console.error('Erro ao deletar:',err);
-            return res.status(500).json({erro:'Erro ao deletar no banco de dados'});
-        }
-        res.json({mensagem:'Denuncia deletada com sucesso'});
+    try{
+        var SelecionaSql='SELECT id_chave_fk FROM denuncias WHERE id_denuncia=?';
+    const resultado = await dbQuery(SelecionaSql, [id_denuncia]);
+    if (resultado.length === 0) {
+        return res.status(404).json({ mensagem: 'Denuncia não encontrada' });
     }
-);});
+    var id_chave_fk = resultado[0].id_chave_fk;
+    var apagaSql = 'DELETE FROM denuncias WHERE id_denuncia=?';
+    await dbQuery(apagaSql, [id_denuncia]);
+    axios.put(`${servicoChaveURL}/chave/contadordiminui/${id_chave_fk}`).catch((error) => {
+        console.error('Erro ao notificar o serviço de chave:', error);
+    });
+    res.json({ mensagem: 'Denuncia deletada com sucesso' });
+
+    }
+    catch(err){
+        console.error('Erro ao deletar denuncia:',err);
+        return res.status(500).json({erro:'Erro ao deletar do banco de dados'});
+    }
+    
+}); 
  
 app.listen(5000,()=>{
     console.log('Servidor rodando em http://localhost:5000');

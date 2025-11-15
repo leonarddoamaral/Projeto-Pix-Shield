@@ -99,6 +99,35 @@ app.put('/chave/:id_chave',(req, res)=>{
         res.json({mensagem:'Chave atualizado com sucesso'});
     });
 });
+
+//contador de denuncias++
+app.put('/chave/contadorsoma/:id_chave',(req, res)=>{
+    var {id_chave}=req.params;
+    var sql='UPDATE chavepix SET numeroDenuncias_chave = numeroDenuncias_chave + 1 WHERE id_chave=?';
+    db.query(sql,[id_chave],(err, result)=>{
+        if(err){
+            console.error('Erro ao atualizar contador de denuncias:',err);
+            return res.status(500).json({erro:'Erro ao atualizar no banco de dados'});
+        }
+        res.json({mensagem:'Contador de denuncias atualizado com sucesso'});
+    });
+});
+
+//contador de denuncias--  
+app.put('/chave/contadordiminui/:id_chave',(req, res)=>{
+    var {id_chave}=req.params;
+    var sql='UPDATE chavepix SET numeroDenuncias_chave = GREATEST(numeroDenuncias_chave - 1, 0) WHERE id_chave=?';
+    db.query(sql,[id_chave],(err, result)=>{
+        if(err){
+            console.error('Erro ao atualizar contador de denuncias:',err);
+            return res.status(500).json({erro:'Erro ao atualizar no banco de dados'});
+        }
+        res.json({mensagem:'Contador de denuncias atualizado com sucesso'});
+    });
+}
+);
+ 
+//Deletar um usuario
  
 app.delete('/chave/:id_chave',(req, res)=>{
     var {id_chave}=req.params;
