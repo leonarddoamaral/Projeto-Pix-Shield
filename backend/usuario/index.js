@@ -120,6 +120,23 @@ app.put('/usuarios/:id_usuario',(req, res)=>{
         res.json({mensagem:'Usuario atualizado com sucesso'});
     });
 });
+
+app.put('/usuarios/esquecisenha/:email_usuario',(req, res)=>{
+    var {email_usuario}=req.params;
+    var{senha_usuario}=req.body;
+    if(!senha_usuario){
+        return res.status(400).json({erro:'Senha é obrigatória'});
+    }
+    var sql='UPDATE usuarios SET senha_usuario=? WHERE email_usuario=?';
+    db.query(sql,[senha_usuario, email_usuario],(err, result)=>{
+        if(err){
+            console.error('Erro ao atualizar a senha:',err);
+            return res.status(500).json({erro:'Erro ao atualizar a senha no banco de dados'});
+        }
+        res.json({mensagem:'Senha atualizada com sucesso'});
+    });
+}
+);
  
 app.delete('/usuarios/:id_usuario',(req, res)=>{
     var {id_usuario}=req.params;

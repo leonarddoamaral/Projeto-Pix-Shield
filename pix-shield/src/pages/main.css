@@ -1,9 +1,19 @@
+:root {
+    --primary-color: #24C55E;
+    --secondary-color: #00b37e;
+    --background-color: #202938;
+    --text-color: #010101;
+    --border-radius: 8px;
+    --font-family: 'Poppins', sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    font-family: var(--font-family);
 }
+
 
 /* Propriedades padrão para todas as páginas */
 
@@ -20,6 +30,7 @@ input {
     padding: 0.7rem 1.2rem;
     border: 1px solid #ccc;
     border-radius: 8px;
+    color: white;
 }
 
 /* Botões */
@@ -28,19 +39,19 @@ button {
     padding: 0.7rem 1.2rem;
     border: none;
     border-radius: 8px;
-    background-color: #007a5c;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--text-color);
     cursor: pointer;
     transition: transform 0.2s, background 0.3s;
 }
 
 button:hover {
-    background-color: #00694d;
+    background-color: var(--secondary-color);
     transform: scale(1.05);
 }
 
 button.outline {
     background: transparent;
-    color: #007a5c;
-    border: 1px solid #007a5c;
-}
+    color: var(--primary-color);
+    border: 1px solid VAR(--SECUNDARY-COLOR);
+}   

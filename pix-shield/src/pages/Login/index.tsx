@@ -23,11 +23,10 @@ function Login() {
 
                         <div className="submitLogin">
                             <button type="submit" className="btnEntrar">Entrar</button>
-                            <button type="button" className="outline">Entrar com Google</button>
                         </div>
 
                         <div className="ajudaLogin">
-                            <a href="#">Criar conta</a>• 
+                            <a href="#">Criar conta</a>
                             <a href="#">Esqueci a senha</a>
                             
                         </div>

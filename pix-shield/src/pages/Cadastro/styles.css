@@ -1,8 +1,7 @@
 .cadastroContainer{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 70vh;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
 }
 
 .cardCadastro{
@@ -14,12 +13,14 @@
   width: 800px;
   height: 500px;
   max-width: 90%;
-  min-height: 550px;
-  min-width: 550px;
+  min-height: 700px;
+  min-width: 700px;
 }
 
 .infoCard{
     margin-bottom: 10px;
+    text-align: center;
+    margin-bottom: 3rem;
 }
 .cardCadastro h2 {
   font-size: 2.5rem;
@@ -41,6 +42,7 @@
   font-size: 0.95rem;
 }
 
+
 .confirmarCadastro{
   display: flex;
   flex-wrap: wrap;
@@ -56,4 +58,28 @@
 .aceiteTermos{
   width: 16px;
   height: 16px;
+}
+
+.labelAceite{
+  margin-top: 1%;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.labelInputs{
+  color: #fff;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  display: block;
+}
+
+.submitCadastro{
+  display: grid;
+  justify-items: center;
+
+}
+.btnEntrar{
+  min-width: 100%;
+  text-align: center;  
 }

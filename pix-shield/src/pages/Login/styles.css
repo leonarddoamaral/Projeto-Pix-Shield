@@ -1,8 +1,7 @@
 .loginContainer{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 70vh;
+  Display: grid;
+  place-items: center;
+  min-height: 100vh;
 }
 
 .cardLogin{
@@ -49,13 +48,17 @@
   padding: 1rem 0px;
   text-align:left;
   font-size: 0.9rem;
+   text-align: center;
+   
 }
 
 .ajudaLogin a {
   color: #999;
   text-decoration: none;
+  margin-left: 1rem;
 }
 
 .ajudaLogin a:hover {
   text-decoration: underline;
+  color: #24C55E;
 }

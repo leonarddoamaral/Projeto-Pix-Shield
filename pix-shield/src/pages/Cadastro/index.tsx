@@ -14,15 +14,19 @@ function Cadastro() {
 
                     <form className="formCadastro" >
                         <div className="inputCadastro" >
-                            <input type="text" required placeholder="Nome Completo" />
-                            <input type="email" required placeholder="E-mail" />
-                            <input type="tel" required placeholder="Telefone" />
-                            <input type="password" required placeholder="Senha" />
+                            <label className='labelInputs'>Nome Completo</label>
+                            <input type="text" required placeholder="Nome Completo" className='inputs' />
+                            <label className='labelInputs'>Email</label>
+                            <input type="email" required placeholder="seu@email.com" className='inputs' />
+                            <label className='labelInputs'>Telefone</label>
+                            <input type="tel" required placeholder="(**)*****-****" className='inputs'/>
+                            <label className='labelInputs'>Senha</label>
+                            <input type="password" required placeholder="Insira sua senha" className='inputs'/>
                         </div>
 
                         <div className="confirmarCadastro">
                             <div className="aceiteTermos">
-                                <input type="checkbox" id="aceite" name="termos" value="aceito" required />
+                                <input type="checkbox" id="aceite" name="termos" value="aceito" required/>
                             </div>
                             <label className="labelAceite" htmlFor="aceite">Concordo com os termos e a política de privacidade</label>
                             <div className="submitCadastro">
