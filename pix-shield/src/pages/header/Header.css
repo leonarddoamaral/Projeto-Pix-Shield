@@ -1,0 +1,40 @@
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+  background: linear-gradient(135deg, #202938, #111828,#111828);
+  color: white;
+  border-bottom: 1px solid #384152;
+}
+
+.logoHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.menu{
+  display: flex;
+  gap: 20px;
+}
+
+li{
+  list-style: none;
+}
+
+li:hover {
+  cursor: pointer;
+  color: var(--primary-color);
+}
+
+.icone{
+  width: auto;
+  height: 4rem;
+}
+
+.icone:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}

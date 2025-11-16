@@ -1,5 +1,5 @@
 import './styles.css'
-import icone from '../../../../Docs/Assets/logo-PixShield.svg'
+import logo from '../../../../Docs/Assets/logo-PixShield.svg'
 import { useState } from 'react'
 
 
@@ -17,7 +17,7 @@ function Cadastro() {
 
                 <section className="cardCadastro">
                     <div className="infoCard">
-                        <img src={icone} alt='Logo icone' className='icone'></img>
+                        <img src={logo} alt='Logo icone' className='icone'></img>
                         <h2>Criar Conta</h2>
                         <p>Preencha os dados para se cadastrar</p>
                     </div>
