@@ -5,19 +5,19 @@
 .titulo-doc{
     display: flex;
     text-align: center;
-    
+
     padding: 2rem;
 }
-h1{
+.h1-doc{
     padding-top: 12px;
     color:#24C55E;
     padding-left: 15px;
 }
-h2{
+.subtitulo-doc{
     color: white;
 }
 
-p{
+.p-doc{
     margin-bottom: 2rem;
     border-bottom: solid 1px #384152;
 }
