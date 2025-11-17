@@ -1,3 +1,5 @@
+
+
 .headerContainer {
   display: flex;
   align-items: center;
@@ -38,6 +40,17 @@ li:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  cursor: pointer;
+  color: var(--primary-color);
+}
+
 
 @media (max-width: 600px) {
  .icone{
