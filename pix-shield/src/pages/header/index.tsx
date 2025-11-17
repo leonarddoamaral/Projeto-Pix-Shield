@@ -14,6 +14,7 @@ function Header() {
 
           <nav className="navbar">
             <ul className="menu">
+              <li><Link to="/login">Entrar</Link></li>
               <li><Link to="/">Início</Link></li>
               <li><Link to="">Pesquisar</Link></li>
               <li><Link to="">Acompanhar</Link></li>
