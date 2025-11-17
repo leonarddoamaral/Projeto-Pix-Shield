@@ -1,0 +1,61 @@
+.main-confirma{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.frame-central{
+    display: grid;
+    max-width: 600px;
+    width: 100%;
+    grid-template-columns: 1fr;
+}
+
+.topo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.bi-check-circle-fill {
+    position: relative;
+    right: 0%;
+    top: 0%;
+    bottom: 0px;
+    cursor: pointer;
+    color: #24C55E;
+    font-size: 10rem;
+}
+
+.card-protocolo {
+    padding: 2rem;
+    background-color: #202938;
+    border-radius: 0.5rem;
+    border: solid 1px #384152;
+    text-align: center;
+    width: 100%;
+
+}
+
+
+.num-protocolo{
+    color: #24C55E;
+    font-size: 2rem;
+}
+
+.titulo-confirma{
+    color: white;
+}
+
+.titulo-protocolo{
+    color: white;
+}
+
+p{
+    margin-bottom: 1rem;
+}
