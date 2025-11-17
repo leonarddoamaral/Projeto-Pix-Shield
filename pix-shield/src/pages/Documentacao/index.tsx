@@ -8,7 +8,6 @@ function Documentacao() {
         <>
             <Header />
             <div className='titulo-doc'>
-                <i className="bi bi-files"></i>
                 <h1 className='h1-doc'>Documentação e Ajuda</h1>
             </div>
             

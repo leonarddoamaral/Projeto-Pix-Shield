@@ -17,10 +17,9 @@ function Header() {
               <li><Link to="/login">Entrar</Link></li>
               <li><Link to="/">Início</Link></li>
               <li><Link to="">Pesquisar</Link></li>
-              <li><Link to="">Acompanhar</Link></li>
+              <li><Link to="">Denúnciar</Link></li>
               <li><Link to="/documentacao">Documentação e ajuda</Link></li>
-              <li><Link to="">Perfil</Link></li>
-              <li><Link to="">Admin</Link></li>
+              <li><Link to="/perfil">Perfil</Link></li>
             </ul>
           </nav>
         </section>
