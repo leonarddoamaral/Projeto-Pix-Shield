@@ -1,4 +1,5 @@
 import './Header.css'
+import { Link } from 'react-router-dom'
 import logo from '../../../../Docs/Assets/logo-PixShield.svg'
 function Header() {
 
@@ -8,17 +9,17 @@ function Header() {
 
         <section className="headerContainer">
           <div className="logoHeader">
-          <img src={logo} alt='Login icone' className='icone'></img>
+            <Link to="/"><img src={logo} alt='Login icone' className='icone'></img></Link> 
           </div>
 
           <nav className="navbar">
             <ul className="menu">
-              <li>Início</li>
-              <li>Pesquisar</li>
-              <li>Acompanhar</li>
-              <li>Documentação e ajuda</li>
-              <li>Perfil</li>
-              <li>Admin</li>
+              <li><Link to="/">Início</Link></li>
+              <li><Link to="">Pesquisar</Link></li>
+              <li><Link to="">Acompanhar</Link></li>
+              <li><Link to="/documentacao">Documentação e ajuda</Link></li>
+              <li><Link to="">Perfil</Link></li>
+              <li><Link to="">Admin</Link></li>
             </ul>
           </nav>
         </section>

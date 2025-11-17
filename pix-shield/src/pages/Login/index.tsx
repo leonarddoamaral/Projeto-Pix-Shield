@@ -2,6 +2,7 @@
 import './styles.css'
 import logo from '../../../../Docs/Assets/logo-PixShield.svg'
 import { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 
 
@@ -43,8 +44,8 @@ function Login() {
                         </div>
 
                         <div className="ajudaLogin">
-                            <a href="#">Criar conta</a>
-                            <a href="#">Esqueci a senha</a>
+                            <Link to="/Cadastro">Criar conta</Link>
+                            <Link to="/Cadastro">Esqueci a senha</Link>
                             
                         </div>
                     </form>
