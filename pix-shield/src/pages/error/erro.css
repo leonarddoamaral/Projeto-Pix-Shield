@@ -1,0 +1,32 @@
+.container-erro{
+    padding: 2rem;
+    display: grid;
+    place-content: center;
+    place-items: center;
+    place-self: center;
+
+    height: 100dvh;
+}
+
+.p-erro{
+    margin-top: 0;
+    padding: 0;
+}
+
+.h1-erro{
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.button-voltar{
+    margin: 1em;
+    
+}
+
+a{
+    color:black;
+}
+
+a:hover{
+    color:black;
+}

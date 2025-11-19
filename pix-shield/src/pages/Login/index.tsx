@@ -1,6 +1,6 @@
 
 import './styles.css'
-import logo from '../../../../Docs/Assets/logo-PixShield.svg'
+import logo from '../../assets/logo-PixShield.svg'
 import { useState, type FormEvent } from 'react'
 import { UserAPI } from '../../api/users'
 import type { User } from '../../types' 
@@ -85,7 +85,6 @@ function Login() {
 
                         <div className="ajudaLogin">
                             <a href="#">Criar conta</a>
-                            <a href="#">Esqueci a senha</a>
                             
                         </div>
                     </form>

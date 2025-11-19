@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "../header";
 import "./Registro.css";
+import Alerta from '../alert/alert'
 
 export default function Registro() {
 
@@ -12,7 +13,7 @@ export default function Registro() {
 
 
   const criarDenuncia = () => {
-    alert(`Denúncia de ${nomeCliente} criada!`);
+    <Alerta severity='success' messageAlert='Denúncia criada com sucesso.' />
   };
 
   const enviarDenuncia = (e: React.FormEvent) => {

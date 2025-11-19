@@ -57,10 +57,10 @@ a:hover {
   height: 3rem;
  }
  .menu{
-  gap: 5px;
-  font-size: small;
+  display: none;
  }
  h1{
   font-size: medium;
  }
+
 }
