@@ -2,6 +2,7 @@ import Header from '../header'
 import Card from '../Card'
 import './home.css'
 import CardGrande from '../Card-grande'
+import { Link } from 'react-router-dom'
 
 function Home() {
   return (
@@ -10,7 +11,7 @@ function Home() {
       <nav className='homeContainer'>
         <h1 className='titulo-home'>Bem-vindo ao Pix Shield!</h1>
         <p className='p-denuncia'>Denuncie e encontre chaves pix sobe suspeitas de fraude</p>
-        <button>+ Nova denúncia</button>
+       <Link to='/registro'> <button>+ Nova denúncia</button></Link>
       </nav>
       <nav className='cards-info'>
         <Card titulo='1,247' subtitulo='Denúncias Registradas'/>
