@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import LogoBroken from './../../assets/erro-icon.png'
 import './erro.css'
-function Erro() {
+function ErrorPage() {
     return (
         <>
             <div className="container-erro">
@@ -13,4 +13,4 @@ function Erro() {
         </>
     )
 
-} export default Erro
+} export default ErrorPage
