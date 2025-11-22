@@ -20,3 +20,16 @@ export type Denuncia = {
     nome_usuario:string;
     valor_chave:string;
 }
+
+export type contagemDenuncia = {
+    contadorDenuncias: number;
+}
+
+export type contagemChave = {
+    contadorChave: number;
+}
+
+export type contagemDenunciada = {
+    contadorDenunciada: string;
+}
+
