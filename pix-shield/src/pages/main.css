@@ -3,8 +3,12 @@
     --secondary-color: #00b37e;
     --background-color: #202938;
     --text-color: #010101;
+    --white: #f7f5f7
     --border-radius: 8px;
     --font-family: 'Poppins', sans-serif;
+    --azul: #111828;
+    --radius: 10px;
+
 }
 
 * {
