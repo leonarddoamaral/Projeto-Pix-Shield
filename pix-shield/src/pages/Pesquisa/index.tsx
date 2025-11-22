@@ -57,6 +57,7 @@ function SearchPage() {
                 {!loading && query.length > 0 && results.length === 0 && (
                     <p>Nenhuma denúncia encontrada.</p>
                 )}
+
                 <div className="cards-container">
                     {!loading && results.map((denuncia) => (
                         <CardResults key={denuncia.id_denuncia} data={denuncia} />

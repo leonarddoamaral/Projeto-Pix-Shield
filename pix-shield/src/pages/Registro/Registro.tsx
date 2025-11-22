@@ -31,20 +31,17 @@ const enviarDenuncia = async (e: React.FormEvent) => {
 
     try {
       const novaDenuncia = await DenunciaAPI.create(payload);
-      
-      // Corrigido: Verifica se novaDenuncia existe E se id_denuncia NÃO É null ou undefined.
-      if (novaDenuncia && novaDenuncia.id_denuncia !== null && novaDenuncia.id_denuncia !== undefined) {
-      
-        console.log('Denuncia cadastrada com sucesso: ', novaDenuncia)
+      if (novaDenuncia && novaDenuncia.id_denuncia) { 
+        console.log('Denuncia cadastrada com sucesso: ', novaDenuncia)
         setSucesso(true);
         navegate('/sucesso', {
           state: {
             idDenuncia: novaDenuncia.id_denuncia,
           }
         });
-        // ... restante do código de sucesso
       } else {
-        throw new Error("A API não retornou o ID da denúncia."); // O erro é lançado se for null ou undefined
+
+        throw new Error("A API não retornou o ID da denúncia."); 
       }
       setIdCliente(null);
       setChavePix('');
