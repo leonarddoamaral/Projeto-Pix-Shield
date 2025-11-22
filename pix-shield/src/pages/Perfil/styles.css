@@ -1,3 +1,20 @@
-body{
-    color: aliceblue;
+.containerPerfil{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    padding: 2rem;
+}
+
+.avatar-image{
+    width: 60%;
+}
+
+.botoes{
+    display: flex;
+    gap: 10px;
+}
+
+.card{
+    margin-top: 50px;
+    width: 100%;
+    
 }

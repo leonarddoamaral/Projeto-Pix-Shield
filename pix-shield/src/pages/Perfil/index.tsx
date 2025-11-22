@@ -1,17 +1,18 @@
 import Header from '../header'
 import './styles.css'
+import MinhasDenuncias from './../../components/MinhasDenuncias'
 
 function PerfilUser() {
 
     return (
         <>
             <Header />
-            <div className='containerPerfil'>
+             <div className='containerPerfil'>
                 <aside className="infoGerais" aria-label="Informações do perfil">
                     <section className="perfil">
                         <figure className="avatarPerfil">
-                            <img
-                                src="../../../src/assets/perfil.webp"
+                          <img
+                                src="./../src/assets/perfil.svg"
                                 alt="Foto de perfil "
                                 className="avatar-image"
                             />
@@ -20,39 +21,41 @@ function PerfilUser() {
                         <div className="infoPerfil">
                             <h2 className="profile-name">Nome do usuário</h2>
                             <p className="profile-email">nome@email.com</p>
+                            <p className="profile-email">ID do usuário</p>
                         </div>
 
-                        <div className="acoesPerfil">
-                            <button type="button" className="mudarFoto">
-                                Alterar Foto
-                            </button>
-                        </div>
                     </section>
 
                     <section className="contadorDenuncias">
-                        <p>Denuncias Enviadas</p>
-                        <p> (puxar do backend) </p>
+                        <p>Denuncias Enviadas: 10</p>
                     </section>
                 </aside>
 
                 <main className="infoPessoal">
                     <h2>Informações Pessoais</h2>
                     <div className="areaNome">
-                        <h3>Nome Completo</h3>
-                        <p>(puxar do backend)</p>
+                        <label>Nome Completo</label>
+                        <input type="text" placeholder="Digite seu nome completo" disabled/>
                     </div>
                     <div className="areaEmail">
-                        <h3>E-mail</h3>
-                        <p>(puxar do backend)</p>
+                        <label>E-mail</label>
+                        <input type="email" placeholder="Digite seu e-mail" disabled/>
                     </div>
-                    <div>
-                        <h3>Telefone</h3>
-                        <p>(puxar do backend)</p>                        
+                    <div className="areaTelefone">
+                        <label>Telefone</label>
+                        <input type="tel" placeholder="Digite seu telefone" disabled/>                        
                     </div>
-                    <div>
-                        <h3>Senha</h3>
-                        <p>(puxar do backend)</p>
-                    </div>    
+                    <div className="areaSenha">
+                        <label>Senha</label>
+                        <input type="password" placeholder="Digite sua senha"  disabled />
+                    </div>
+                    <div className="botoes">
+                        <button className="btnSalvar">Salvar</button>
+                        <button className="btnAlterar">Alterar</button>
+                    </div>
+                    <div className='card'>
+                        <MinhasDenuncias titulo="titulo" id={1} desc='descrito' chave="abadas" data="11/11/21" />
+                    </div>
                 </main>
             </div>
 
