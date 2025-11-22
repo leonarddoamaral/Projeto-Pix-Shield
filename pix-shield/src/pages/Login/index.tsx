@@ -5,8 +5,7 @@ import { useState, type FormEvent } from 'react'
 import { UserAPI } from '../../api/users'
 import type { User } from '../../types' 
 import Alerta from '../alert/alert'
-
-
+import { Link } from 'react-router-dom'
 
 function Login() {
     const [senhaVisivel, setSenhaVisivel] = useState(false);
@@ -15,8 +14,6 @@ function Login() {
     const [senha, setSenha] = useState('');
     const [erro, setErro] = useState<string | null>(null);
     const [sucesso, setSucesso] = useState(false);
-
-
 
     const toggleSenha = () => {
         setSenhaVisivel(!senhaVisivel);
@@ -46,8 +43,6 @@ function Login() {
             setErro(`Erro ao fazer login: ${errorMensage.includes('HTTP 500') ? 'Erro interno.' : errorMensage}`)
         }
     }
-    
-
 
     return (
         <>
@@ -63,8 +58,6 @@ function Login() {
                         <img src={logo} alt='Login icone' className='icone'></img>
                         <h2>Entrar</h2>
                         <p>Acesse sua conta para continuar</p>
-                        
-                        
                     </div>
 
 
@@ -84,7 +77,7 @@ function Login() {
                         </div>
 
                         <div className="ajudaLogin">
-                            <a href="#">Criar conta</a>
+                            <Link to="/Cadastro">Criar conta</ Link>
                             
                         </div>
                     </form>

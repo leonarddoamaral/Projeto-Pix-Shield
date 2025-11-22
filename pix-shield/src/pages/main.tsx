@@ -10,6 +10,7 @@ import PerfilUser from './Perfil'
 import Registro from './Registro/Registro'
 import Sucesso from './confimaDenuncia/Denuncia'
 import Erro from './error'
+import Pesquisar from './Pesquisa'
 
 const router = createBrowserRouter([
   {path: "/", element: <Home />},
@@ -20,7 +21,8 @@ const router = createBrowserRouter([
   {path: "/perfil", element: <PerfilUser />},
   {path: "/registro", element: <Registro/>},
   {path: "/sucesso", element:<Sucesso/>},
-  {path: "/erro",element:<Erro/>}
+  {path: "/erro",element:<Erro/>},
+  {path: "/pesquisa", element: <Pesquisar />}
   // {path: "/perfil", element: }
 ])
 

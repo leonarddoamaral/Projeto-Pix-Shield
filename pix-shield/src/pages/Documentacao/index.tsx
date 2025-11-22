@@ -1,8 +1,6 @@
 import Header from '../header';
 import './documentacao.css'
 
-
-
 function Documentacao() {
     return (
         <>

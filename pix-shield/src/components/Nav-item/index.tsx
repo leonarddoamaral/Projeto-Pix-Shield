@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import '../pages/header/Header.css'
+import '../../pages/header/Header.css'
 
 export interface NavItemInterface {
     url: string;
