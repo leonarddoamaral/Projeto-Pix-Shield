@@ -23,10 +23,10 @@
     
 }
 
-a{
+a.linkErro{
     color:black;
 }
 
-a:hover{
+a.linkErro:hover{
     color:black;
 }

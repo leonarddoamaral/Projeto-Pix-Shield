@@ -14,7 +14,7 @@
 }
 
 body {
-  background: linear-gradient(135deg, var(--azul), var(--preto));
+  background: linear-gradient(135deg, var(--azul), var(--text-color));
   color: white;
 }
 
@@ -42,13 +42,13 @@ body {
   padding: 20px;
   border-radius: var(--radius);
   margin-top: 25px;
-  box-shadow: 0 0 15px var(--verde);
+  box-shadow: 0 0 15px var(--primary-color);
 }
 
 .protocolo {
   font-size: 28px;
   font-weight: bold;
-  color: var(--verde);
+  color: var(--primary-color);
 }
 
 .importante {
@@ -59,8 +59,8 @@ body {
 
 
 .copiar-btn {
-  background: var(--verde);
-  color: var(--preto);
+  background: var(--primary-color);
+  color: var(--text-color);
   padding: 10px 18px;
   border: none;
   border-radius: var(--radius);

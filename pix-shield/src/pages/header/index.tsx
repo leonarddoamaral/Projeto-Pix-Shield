@@ -1,7 +1,41 @@
 import './Header.css'
 import { Link } from 'react-router-dom'
+import { FaBars } from "react-icons/fa";
 import logo from '../../assets/logo-PixShield.svg'
+import NavItem, { type NavItemInterface } from '../../components'
+import { useState } from 'react';
+import { MdMenuOpen } from 'react-icons/md';
+import { FaXmark } from 'react-icons/fa6';
 function Header() {
+
+  const items: NavItemInterface[] = [
+    {
+      url: "/login",
+      label: "Entrar"
+    },
+    {
+      url: "/",
+      label: "Início"
+    },
+    {
+      url: "",
+      label: "Pesquisar"
+    },
+    {
+      url: "",
+      label: "Denunciar"
+    },
+    {
+      url: "/documentacao",
+      label: "Ajuda"
+    },
+    {
+      url: "/perfil",
+      label: "Perfil"
+    },
+  ]
+
+  const [openMenu, setOpenMenu] = useState<boolean>(false);
 
   return (
     <>
@@ -9,18 +43,22 @@ function Header() {
 
         <section className="headerContainer">
           <div className="logoHeader">
-            <Link to="/"><img src={logo} alt='Login icone' className='icone'></img></Link> 
+            <Link to="/"><img src={logo} alt='Login icone' className='icone'></img></Link>
           </div>
 
           <nav className="navbar">
-            <ul className="menu">
-              <li><Link to="/login">Entrar</Link></li>
-              <li><Link to="/">Início</Link></li>
-              <li><Link to="">Pesquisar</Link></li>
-              <li><Link to="/registro">Denúnciar</Link></li>
-              <li><Link to="/documentacao">Documentação e ajuda</Link></li>
-              <li><Link to="/perfil">Perfil</Link></li>
+            <ul className={`menu ${openMenu ? "open" : ""}`}>
+              {items.map((item, index) => (
+                <NavItem
+                  key={index}
+                  url={item.url}
+                  label={item.label}
+                />
+              ))}
             </ul>
+            <button className="btn-mobile" onClick={() => setOpenMenu(!openMenu)}>
+              {openMenu ? <FaXmark /> : <FaBars />}
+            </button>
           </nav>
         </section>
 

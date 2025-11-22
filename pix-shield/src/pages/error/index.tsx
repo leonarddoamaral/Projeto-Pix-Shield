@@ -8,7 +8,7 @@ function Erro() {
                 <img src={LogoBroken}/>
                 <h1 className='h1-erro'>Página não encontrada</h1>
                 <p className='p-erro'>Endereço não encontrado, essa página não existe ou foi digitado incorretamente.</p>
-                <Link to ="/"><button type='button' className='button-voltar'> Voltar a tela inicial</button></Link>
+                <Link className="linkErro" to ="/"><button type='button' className='button-voltar'> Voltar a tela inicial</button></Link>
             </div>
         </>
     )
