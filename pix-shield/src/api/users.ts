@@ -1,5 +1,5 @@
 // VITE_API_URL=http://185.137.92.41:3000
-import { http } from "./client";
+import { http } from "./clientUsuario";
 import type { User, LoginResponse} from "../types";
 
 

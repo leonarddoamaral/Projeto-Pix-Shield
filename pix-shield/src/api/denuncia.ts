@@ -1,5 +1,6 @@
-import { http } from "./clientD";
-import type { Denuncia } from "../types";
+import { http } from "./clientDenuncias";
+import type { Denuncia, contagemDenuncia } from "../types";
+
 
 type DenunciaId = number;
 
@@ -9,7 +10,9 @@ export const DenunciaAPI = {
    
      get: (id: DenunciaId) =>
        http<Denuncia>(`/denuncias/${id}`),
-   
+     
+     contagem: ()=>
+        http<contagemDenuncia>('/denuncias/contador'),
    
      create: (
        payload: Omit<
