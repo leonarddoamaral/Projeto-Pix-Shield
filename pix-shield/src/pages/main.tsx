@@ -8,7 +8,7 @@ import Documentacao from './Documentacao'
 import Login from './Login'
 import Cadastro from './Cadastro'
 import PerfilUser from './Perfil'
-import Registro from './Registro/Registro'
+import Registro from './Registro'
 import Sucesso from './confimaDenuncia/Denuncia'
 import Pesquisar from './Pesquisa'
 

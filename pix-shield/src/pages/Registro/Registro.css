@@ -1,69 +1,93 @@
-:root {
-    --primary-color: #24C55E;
-    --secondary-color: #00b37e;
-    --background-color: #13171f;
-    --text-color: #030303;
-    --border-radius: 8px;
-    --font-family: 'Poppins', sans-serif;
+.corpoPagina {
+    Display: grid;
+    place-items: center;
+    min-height: 100vh;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: var(--font-family);
-}
-
-
-
-
+/* ----- card da denúncia ----- */
 .container {
-    max-width: 900px;
-    width: 110%;
-    margin: 2rem auto;
+    margin: 5rem 0px;
+    max-width: 800px;
+    width: 90%;
     padding: 2rem;
     background-color: #202938;
-    border-radius: var(--border-radius);
+    border-radius: 10px;
     color: white;
-   
 }
 
-
-h1 {
+.container h1 {
     text-align: center;
     margin-bottom: 2rem;
+    font-size: 2.5rem;
 }
 
-
-.form-box, .form-group {
+.form-box,
+.form-group {
     margin-bottom: 1.5rem;
 }
 
-label {
+/* ---------------- */
+
+/* ----- Inputs ----- */
+
+.corpoPagina label {
     display: block;
     margin-bottom: 0.5rem;
-    font-weight: bold;
+    font-size: 1.4rem;
+    font-weight: 700;
 }
 
-
-input, textarea {
-     background-color: #384152;
-  width: 100%;
-  padding: 10px 12px;
-  margin-bottom: 15px;
-  border: none;
-  border-radius: 5px;
-  font-size: 0.95rem;
-}
-
-
+.corpoPagina input,
 textarea {
+    background-color: #384152;
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.95rem;
+}
+
+
+.corpoPagina textarea {
     resize: vertical;
     color: white;
 }
 
-.button-group{
+.button-group {
     text-align: center;
     justify-items: center;
 }
 
+.button-group button {
+    min-width: 100%;
+    transition: scale 0.2 ease;
+}
+
+
+.button-group button:hover {
+    transform: scale(1.02);
+    color: #f7f5f7;
+}
+
+/* ----- Responsividade ----- */
+
+@media (max-width: 1200px) {
+    .container h1 {
+        font-size: 2rem;
+    }
+
+    .container label{
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .corpoPagina h1 {
+        font-size: 1.7rem;
+    }
+
+    .container label{
+        font-size: 1rem;
+    }
+}
