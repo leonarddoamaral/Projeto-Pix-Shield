@@ -3,6 +3,7 @@ import Header from "../header"
 import type { Denuncia } from "../../types";
 import { DenunciaAPI } from "../../api/denuncia";
 import CardResults from "../../components/cardResults";
+import CircularProgress  from '@mui/material/Alert'
 import './styles.css'
 
 function SearchPage() {
@@ -52,7 +53,7 @@ function SearchPage() {
 
             <section className="search-results">
 
-                {loading && <p>Carregando...</p>}
+                {loading && <CircularProgress color="success" />}
 
                 {!loading && query.length > 0 && results.length === 0 && (
                     <p>Nenhuma denúncia encontrada.</p>

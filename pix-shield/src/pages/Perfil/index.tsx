@@ -6,10 +6,29 @@ import { UserAPI } from '../../api/users';
 import type { User, Denuncia } from '../../types';
 import { DenunciaAPI } from '../../api/denuncia';
 import Alerta from '../alert/alert'
+import { jwtDecode } from 'jwt-decode';
+import type { JwtPayload } from 'jwt-decode';
+import CircularProgress  from '@mui/material/Alert'
 
+interface CustomJwtPayload extends JwtPayload {
+    id_usuario: number; 
+    email_usuario: string;
+}
 
-
-
+function getUserIdFromToken(): number | null {
+    const token = localStorage.getItem('authToken');
+    if (!token) {
+        return null; 
+    }
+    try {
+        const decoded = jwtDecode<CustomJwtPayload>(token);
+        return decoded.id_usuario; 
+    } catch (e) {
+        console.error("Erro ao decodificar o token:", e);
+        localStorage.removeItem('authToken'); 
+        return null;
+    }
+}
 
 function PerfilUser() {
     const [senhaVisivel, setSenhaVisivel] = useState(false);
@@ -24,9 +43,6 @@ function PerfilUser() {
     const [editMode, setEditMode] = useState(false);
     const [erro, setErro] = useState<string | null>(null);
     const [sucesso, setSucesso] = useState(false);
-    const USUARIO_ID_LOGADO = 8
-
-    
    
 
     const toggleSenha = () => {
@@ -40,6 +56,11 @@ function PerfilUser() {
     const handleSave = async (e: FormEvent) => {
         e.preventDefault();
         setLoading(true);
+        if (idUsuario === null) {
+            setErro("ID do usuário não encontrado. Faça login novamente.");
+            setLoading(false);
+            return;
+        }
         try {
             await UserAPI.update(idUsuario, {
                 nome_usuario: nome,
@@ -58,18 +79,26 @@ function PerfilUser() {
     }
 
     useEffect(() => {
-        async function loadUserData() {
+        const userId = getUserIdFromToken();
+        if (userId === null) {
+            setErro("Você não está logado.");
+            setLoading(false);
+            return;
+        }
+
+        setIdUsuario(userId);
+        async function loadUserData(userId: number) {
             setLoading(true);
             try {
                 // 1. Carregar dados do usuário
-                const userData: User = await UserAPI.get(USUARIO_ID_LOGADO);
+                const userData: User = await UserAPI.get(userId);
                 setIdUsuario(userData.id_usuario);
                 setNome(userData.nome_usuario);
                 setEmail(userData.email_usuario);
                 setTelefone(userData.telefone_usuario);
                 setSenha(userData.senha_usuario)
 
-                const userDenuncias: Denuncia[] = await DenunciaAPI.getDenunciasByUserId(USUARIO_ID_LOGADO);
+                const userDenuncias: Denuncia[] = await DenunciaAPI.getDenunciasByUserId(userId);
                 setDenuncias(userDenuncias);
 
             } catch (error) {
@@ -78,14 +107,14 @@ function PerfilUser() {
                 setLoading(false);
             }
         }
-        loadUserData();
+        loadUserData(userId);
     }, []);
 
     const inputType = senhaVisivel ? "text" : "password";
     const iconClass = senhaVisivel ? "bi bi-eye-slash" : "bi bi-eye";
 
     if (loading) {
-        return <p>Carregando perfil...</p>;
+        <CircularProgress color="success" />;
     }
 
     return (

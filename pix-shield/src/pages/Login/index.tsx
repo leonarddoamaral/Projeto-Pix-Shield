@@ -5,16 +5,16 @@ import { useState, type FormEvent } from 'react'
 import { UserAPI } from '../../api/users'
 import type { User } from '../../types' 
 import Alerta from '../alert/alert'
-import { Link } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 function Login() {
     const [senhaVisivel, setSenhaVisivel] = useState(false);
-
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [erro, setErro] = useState<string | null>(null);
     const [sucesso, setSucesso] = useState(false);
 
+     let navegate = useNavigate()
 
     const toggleSenha = () => {
         setSenhaVisivel(!senhaVisivel);
@@ -34,8 +34,13 @@ function Login() {
 
         try{
             const logar = await UserAPI.login(payload);
+            if(logar.token){
+            localStorage.setItem('authToken', logar.token);
+            
+            }
             console.log('Usuario Logado com sucesso', logar)
             setSucesso(true);
+            navegate('/')
             setEmail('');
             setSenha('');
         }catch (error){
