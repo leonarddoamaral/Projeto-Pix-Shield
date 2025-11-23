@@ -1,51 +1,294 @@
+/*
+|--------------- HEADER ---------------|
+|-infoPerfil- | ------ infoPessoal-----|
+|------------- denuncias --------------| 
+|--------------- FOOTER ---------------| 
+*/
+
+/* ====================================
+   1. CONTAINER PRINCIPAL (.containerPerfil)
+   ==================================== */
+
 .containerPerfil {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
+  display: grid;
+  grid-template-columns: 1fr 2fr; 
+  grid-template-rows: auto auto; 
+  grid-template-areas:
+    "bloco1 bloco2"
+    "bloco3 bloco3";
+  
+  gap: 2rem;
+  padding: 2rem 4rem;
+  color: #fff;
+  align-items: stretch; 
+  max-width: 1400px; 
+  margin: 0 auto;
+}
+
+
+/* ----- ÁREAS DE GRID (Blocos) ----- */
+
+.bloco1 {
+    grid-area: bloco1;
+    height: 100%; 
+}
+
+.bloco2 {
+    grid-area: bloco2;
+}
+
+.bloco3 {
+    grid-area: bloco3;
+}
+
+
+/* ====================================
+   2. BLOCO 1: Informações do Perfil 
+      (ASIDE .infoGerais)
+   ==================================== */
+
+.infoGerais {
+    /* Estilos do Card */
+    background: #111827;
+    border: 1px solid #1f2937;
     padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    height: 100%; 
+    transition: transform 0.3s ease;
+}
+
+/* Efeito sutil ao passar o mouse */
+.infoGerais:hover {
+    transform: translateY(-2px);
+}
+
+/* --- Sub-Seção: Perfil --- */
+.perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%; 
+    justify-content: center;
+}
+
+/* --- Sub-Sub-Seção: Avatar --- */
+.avatarPerfil {
+    width: 60%; 
+    max-width: 180px; 
+    margin-bottom: 1.5rem; 
 }
 
 .avatar-image {
-    width: 60%;
-}
-
-.botoes {
-    display: flex;
-    gap: 10px;
-}
-
-.card {
-    margin-top: 50px;
     width: 100%;
-
+    height: auto;
+    border-radius: 50%; 
+    border: 3px solid #10b981;
 }
 
+/* --- Sub-Sub-Seção: Informações de Texto --- */
+.infoPerfil {
+    padding-top: 1rem;
+    border-top: 1px dashed #1f2937; 
+}
+
+.infoPerfil p {
+    margin: 8px 0;
+    font-size: 1rem; 
+    color: #d1d5db;
+}
+
+
+/* ====================================
+   3. BLOCO 2: Informações Pessoais 
+      (SECTION .infoPessoal)
+   ==================================== */
+
+.infoPessoal {
+    /* Estilos do Card */
+    background: #111827;
+    border: 1px solid #1f2937;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease;
+}
+
+.infoPessoal:hover {
+    transform: translateY(-2px);
+}
+
+.infoPessoal h2 {
+    margin-bottom: 2rem; 
+    font-size: 1.6rem;
+    border-bottom: 1px solid #1f2937;
+    padding-bottom: 0.5rem;
+}
+
+/* --- Sub-Seção: Formulário --- */
+
+.formInfoPessoal {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-right: 40px;
+}
+
+.formInfoPessoal label {
+    color: #d1d5db;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.formInfoPessoal input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 0;
+    border-radius: 8px;
+    border: 1px solid #374151;
+    background: #1f2937;
+    color: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.formInfoPessoal input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #0f172a;
+}
+
+.formInfoPessoal input:focus {
+    outline: none;
+    border-color: #10b981;
+    box-shadow: 0 0 5px rgba(16,185,129,0.8);
+}
+
+/* ----- Senha com ícone ----- */
 .areaSenha {
     position: relative;
+    margin-bottom: 0; 
 }
 
-.infos-gerais {
-    padding: 10px;
+.areaSenha i {
+    position: absolute;
+    cursor: pointer;
+    color: #10b981;
+    transition: color 0.2s; 
+    z-index: 10;
+}
+
+.areaSenha i:hover {
+    color: #0e9f6e;
+}
+
+
+/* --- Sub-Sub-Seção: Botões --- */
+.botoes {
+    display: flex;
+    gap: 15px;
+    margin-top: 2rem; 
+    padding-top: 1rem;
+    border-top: 1px dashed #1f2937;
+}
+
+.btnSalvar,
+.btnAlterar {
+    flex: 1;
+    padding: 14px; 
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    border: 1px solid transparent; 
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Salvar */
+.btnSalvar {
+    background: #10b981;
+    color: #ffffff;
+}
+
+.btnSalvar:hover {
+    background: #0e9f6e;
+    box-shadow: 0 2px 5px rgba(16,185,129,0.5);
+}
+
+.btnSalvar:disabled {
+    background: #0e9f6e99;
+    cursor: not-allowed;
+}
+
+/* Alterar */
+.btnAlterar {
+    background: #374151;
+    color: #ffffff;
+    border-color: #374151;
+}
+
+.btnAlterar:hover {
+    background: #4b5563;
+    border-color: #4b5563;
+}
+
+
+/* ====================================
+   4. BLOCO 3: Denúncias 
+      (SECTION .denuncias)
+   ==================================== */
+
+.denuncias {
+    margin-top: 3rem;
+}
+
+.minha {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: #10b981;
 }
 
 .cards-denuncias {
-    display: flex; 
-    flex-direction: column;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 1.5rem;
 }
 
-.botoes{
-    margin-bottom: 10px;
-}
 
-@media (max-width: 600px) {
+/* ====================================
+   5. RESPONSIVIDADE MULTI-BREAKPOINT
+   ==================================== */
 
+@media (max-width: 1200px) {
     .containerPerfil {
-        display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 1.5rem;
         padding: 2rem;
     }
+}
 
-    .infos-gerais {
-        border-bottom: solid 1px #384152;
-    }
+@media (max-width: 768px) {
+  .containerPerfil {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "bloco1"
+      "bloco2"
+      "bloco3";
+    gap: 2.5rem;
+    padding: 1.5rem 1rem; 
+  }
+  
+  .perfil {
+      justify-content: flex-start;
+  }
+  
+  .avatarPerfil {
+      width: 40%;
+      max-width: 120px;
+  }
+
+  .botoes {
+    flex-direction: column;
+  }
 }

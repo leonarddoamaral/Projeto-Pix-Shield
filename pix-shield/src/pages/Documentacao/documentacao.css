@@ -1,23 +1,29 @@
+.titulo-doc{
+    display: flex;
+    text-align: center;
+    padding: 2rem;
+}
+
+.titulo-doc h1{
+        font-size: 2.5rem;
+}
+
 .main-doc{
     padding: 2rem;
 }
 
-.titulo-doc{
-    display: flex;
-    text-align: center;
-
-    padding: 2rem;
-}
-.h1-doc{
+.main-doc h2{
     padding-top: 12px;
     color:#24C55E;
-    padding-left: 15px;
-}
-.subtitulo-doc{
-    color: white;
 }
 
-.p-doc{
+.main-doc p{
     margin-bottom: 2rem;
     border-bottom: solid 1px #384152;
+}
+
+@media (max-width: 768px){
+    .titulo-doc h1{
+        font-size: 1.5rem;
+    }
 }
