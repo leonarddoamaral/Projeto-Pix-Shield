@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "../../components/Header"
 import "./Registro.css";
-import Alerta from '../alert/alert'
+import Alerta from '../../components/alert/alert'
 import type { Denuncia } from "../../types";
 import { DenunciaAPI } from "../../api/denuncia";
 import { useNavigate } from "react-router-dom";

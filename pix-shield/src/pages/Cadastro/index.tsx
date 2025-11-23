@@ -2,7 +2,7 @@ import { useState } from 'react'
 import type { FormEvent } from 'react'
 import { UserAPI } from '../../api/users'
 import type { User } from '../../types' 
-import Alerta from '../alert/alert'
+import Alerta from '../../components/alert/alert'
 import './styles.css'
 import { Link } from 'react-router-dom'
 

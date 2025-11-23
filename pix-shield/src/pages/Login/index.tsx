@@ -4,7 +4,7 @@ import logo from '../../assets/logo-PixShield.svg'
 import { useState, type FormEvent } from 'react'
 import { UserAPI } from '../../api/users'
 import type { User } from '../../types' 
-import Alerta from '../alert/alert'
+import Alerta from '../../components/alert/alert'
 import { useNavigate, Link } from 'react-router-dom'
 
 function Login() {

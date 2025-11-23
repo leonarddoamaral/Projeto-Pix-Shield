@@ -5,7 +5,7 @@ import { useEffect, useState, type FormEvent } from 'react'
 import { UserAPI } from '../../api/users';
 import type { User, Denuncia } from '../../types';
 import { DenunciaAPI } from '../../api/denuncia';
-import Alerta from '../alert/alert'
+import Alerta from '../../components/alert/alert'
 import { jwtDecode } from 'jwt-decode';
 import type { JwtPayload } from 'jwt-decode';
 import CircularProgress  from '@mui/material/Alert'

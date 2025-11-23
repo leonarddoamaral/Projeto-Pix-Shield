@@ -4,6 +4,9 @@
   min-height: 100vh;
 }
 
+
+/* ----- card do Login ----- */
+
 .cardLogin {
   background-color: #202938;
   padding: 40px 20px;
@@ -13,6 +16,10 @@
   width: 90%;
   min-height: 300px;
   max-width: 500px;
+}
+
+.icone {
+  height: 6rem;
 }
 
 .infoCard {
@@ -28,11 +35,8 @@
   color: #fff;
 }
 
-.icone {
-  height: 6rem;
-}
+/* ------ Inputs ------ */
 
-/* Inputs */
 .formLogin input {
   background-color: #384152;
   width: 100%;
@@ -47,25 +51,6 @@
   margin: 5px;
 }
 
-.ajudaLogin {
-  padding: 1rem 0px;
-  text-align: left;
-  font-size: 0.9rem;
-  text-align: center;
-
-}
-
-.ajudaLogin a {
-  color: #999;
-  text-decoration: none;
-  margin-left: 1rem;
-}
-
-.ajudaLogin a:hover {
-  text-decoration: underline;
-  color: #24C55E;
-}
-
 .labelInputs {
   color: #fff;
   font-size: 0.9rem;
@@ -77,6 +62,29 @@
 .passwordInput {
   position: relative;
 }
+
+/* ------------------------ */
+
+/* Ajuda no login */
+
+.ajudaLogin {
+  padding: 1rem 0px;
+  text-align: left;
+  font-size: 0.9rem;
+  text-align: center;
+
+}
+.ajudaLogin a {
+  color: #999;
+  text-decoration: none;
+  margin-left: 1rem;
+}
+.ajudaLogin a:hover {
+  text-decoration: underline;
+  color: #24C55E;
+}
+
+/* --------------------- */
 
 .bi {
   position: absolute;
@@ -101,7 +109,7 @@
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .cardLogin {
     padding: 20px 15px;
     width: 95%;
