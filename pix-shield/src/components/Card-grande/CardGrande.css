@@ -1,18 +1,17 @@
 .cardGrande {
-    flex: 1 1 300px;
-    border-radius: 1rem;
+    display: flex;
     padding: 20px;
     margin: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     color: #f7f5f7;
-    transition: transform 0.3s ease-out
+    transition: transform 0.3s ease-out;
 }
 
 .cardGrande:hover {
     transform: translateX(20px);
-    }
+}
 
 .cardGrande h2 {
     font-size: 3rem;
@@ -22,15 +21,42 @@
     text-align: left;
 }
 
-.cardGrande p{
+.cardGrande p {
     font-size: 2rem;
     font-weight: 400;
     text-align: left;
     color: #f7f5f7;
 }
 
-.cardGrande .icone {
-    font-size: 2.5rem;
-    color: #00b37e;
-    margin-bottom: 5px;
+/* BREAKPOINTS */
+
+@media (max-width: 1200px) {
+    .cardGrande {
+        transform: none;
+        transform: translateY(2px);
+    }
+
+    .cardGrande h2 {
+        font-size: 2rem;
+    }
+
+    .cardGrande p {
+        font-size: 1.5rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .cardGrande{
+        transform: translateY(1px) scale(0.99);
+    }
+
+    .cardGrande h2 {
+        font-size: 2rem;
+    }
+
+    .cardGrande p {
+        font-size: 1rem;
+    }
 }

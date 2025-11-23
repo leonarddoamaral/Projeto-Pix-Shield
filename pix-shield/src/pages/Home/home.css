@@ -1,4 +1,5 @@
-/* === SEÇÃO PRINCIPAL === */
+/* --- cabeçalho da página inicial --- */
+
 .homeHeader {
   display: flex;
   flex-direction: column;
@@ -28,7 +29,6 @@
   cursor: default;
 }
 
-/* Botão de nova denúncia */
 .homeHeader button {
   color: white;
   border-radius: 0.75rem;
@@ -43,6 +43,12 @@
   transform: scale(1.05);
 }
 
+/* ------------------------------- */
+
+/* --- corpo da página inicial --- */
+
+/* cards menores - informações das chaves */
+
 .cardsInfo {
   display: grid;
   flex-wrap: wrap;
@@ -56,7 +62,19 @@
   grid-column: span 2;
 
 }
-/* === RESPONSIVIDADE === */
+
+/* -------------------- */
+
+/* cards que servem para navegação */
+
+.cardsNav{
+  padding-right: 20px;
+}
+
+/* -------------------- */
+
+
+/* responsividade  */
 
 @media (max-width: 1200px) {
 
