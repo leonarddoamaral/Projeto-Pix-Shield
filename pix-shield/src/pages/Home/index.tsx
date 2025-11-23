@@ -1,4 +1,4 @@
-import Header from "../../components/header"
+import Header from "../header"
 import Footer from "../../components/Footer"
 import Card from '../../components/Card'
 import './home.css'

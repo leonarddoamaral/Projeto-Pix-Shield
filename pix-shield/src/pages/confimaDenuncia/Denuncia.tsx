@@ -1,4 +1,4 @@
-import Header from "../../components/header"
+import Header from "../header"
 import "./Denuncia.css";
 import { useLocation } from "react-router-dom";
 

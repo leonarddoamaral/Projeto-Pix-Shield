@@ -1,4 +1,4 @@
-import Header from "../../components/header"
+import Header from "../header"
 import './styles.css'
 import MinhasDenuncias from './../../components/MinhasDenuncias'
 

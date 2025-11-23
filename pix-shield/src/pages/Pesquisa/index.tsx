@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Header from "../../components/header"
+import Header from "../header"
 import type { Denuncia } from "../../types";
 import { DenunciaAPI } from "../../api/denuncia";
 import CardResults from "../../components/cardResults";

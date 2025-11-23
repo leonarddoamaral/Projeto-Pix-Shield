@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Header from "../../components/header"
+import Header from "../header"
 import "./Registro.css";
 import Alerta from '../alert/alert'
 import type { Denuncia } from "../../types";
