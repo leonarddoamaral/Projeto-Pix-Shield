@@ -89,7 +89,7 @@ function Home() {
 
       <div className="homeContainer">
         <section className="homeHeader">
-          <h1 className="titleHomeHeader">Bem-vindo ao Pix Shield!</h1>
+          <h1 className="titleHomeHeader">Bem-vindo(a) ao Pix Shield!</h1>
           <p className="pHomeHeader">Uma plataforma colaborativa para identificar chaves suspeitas e impedir novos golpes.</p>
           <Link to='/registro'> <button>+ Nova denúncia</button></Link>
         </section>
